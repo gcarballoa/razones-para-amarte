@@ -1,7 +1,7 @@
 // Tu lógica de JS aquí
 async function cargarRazon() {
     try {
-        const response = await fetch('razones.json');
+        const response = await fetch('./razones.json');
         const data = await response.json();
         
         // Lógica del día del año
