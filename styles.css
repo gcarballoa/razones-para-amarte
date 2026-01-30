@@ -1,0 +1,83 @@
+:root {
+        --color-fondo: #fffaf0; /* Blanco crema */
+        --color-texto: #4a4a4a;
+        --color-acento: #d63447; /* Rojo romántico */
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-fondo);
+        font-family: 'Montserrat', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Contenedor que simula una nota de papel */
+    .nota-container {
+        background: white;
+        width: 85%;
+        max-width: 400px;
+        min-height: 300px;
+        padding: 40px 30px;
+        position: relative;
+        box-shadow: 20px 20px 60px #d9d4cc, -20px -20px 60px #ffffff;
+        border-radius: 2px;
+        transform: rotate(-1deg); /* Ligera rotación para naturalidad */
+        border-left: 2px solid #eee;
+    }
+
+    /* Líneas de cuaderno opcionales */
+    .nota-container::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 40px;
+        height: 100%;
+        width: 1px;
+        background: rgba(214, 52, 71, 0.2);
+    }
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--color-acento);
+        margin-bottom: 40px;
+        font-weight: 400;
+    }
+
+    #reason {
+        font-family: 'Dancing Script', cursive; /* Fuente manuscrita */
+        font-size: 1.8rem;
+        line-height: 1.4;
+        color: #2b2b2b;
+        margin: 0;
+        /* Animación de entrada */
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .date-badge {
+        position: absolute;
+        bottom: 20px;
+        right: 25px;
+        font-family: 'Indie Flower', cursive;
+        font-size: 0.9rem;
+        color: #888;
+    }
+
+    /* Un pequeño corazón decorativo */
+    .corazon {
+        color: var(--color-acento);
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
