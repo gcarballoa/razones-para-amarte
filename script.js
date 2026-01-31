@@ -21,3 +21,10 @@ async function cargarRazon() {
     }
 }
 cargarRazon();
+
+        
+
+
+function cerrarPanel() {
+    document.getElementById('admin-panel').style.display = 'none';
+}

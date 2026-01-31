@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&family=Indie+Flower&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="styles.css">
+    <!--python -m http.server 8000-->
     
     <title>Nuestra Historia</title>
     <style> 
@@ -21,9 +22,42 @@
         <p id="reason">Cargando nuestro amor...</p>
         <div class="date" id="today"></div>
         <div class="corazon">♥ ♥</div>
-        
+    
+    <!-- Script para abrir el panel de administración -->
+    <script>
+        clics = 0;
+        document.querySelector('.corazon').addEventListener('click', () => {
+        clics++;
+        if (clics === 5) { // Se abre al hacer 5 clics rápidos
+            document.getElementById('admin-panel').style.display = 'block';
+            clics = 0;
+            }
+        });
+    </script>
     </div>
+
     <!-- llama al script -->
-    <script src="./script.js" defer></script>
+    <script src="./script2.js" defer></script>
+
+
+    <!-- Panel de administración -->
+    <div id="admin-panel" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border-radius:15px; box-shadow:0 0 20px rgba(0,0,0,0.2); z-index:1000; width:300px;">
+    <h3>Personalizar Razón</h3>
+    <label>Fecha (DD/MM):</label>
+    <input type="text" id="custom-date" placeholder="Ej: 14/02" style="width:100%; margin-bottom:10px;">
+    
+    <label>Categoría:</label>
+    <select id="custom-cat" style="width:100%; margin-bottom:10px;">
+        <option value="aniversario">Aniversario</option>
+        <option value="especial">Momento Especial</option>
+        <option value="promesa">Promesa</option>
+    </select>
+
+    <label>Tu Mensaje:</label>
+    <textarea id="custom-text" style="width:100%; height:80px; margin-bottom:10px;"></textarea>
+    
+    <button onclick="guardarPersonalizacion()" style="background:#d63447; color:white; border:none; padding:10px; width:100%; border-radius:5px;">Guardar Mensaje</button>
+    <button onclick="cerrarPanel()" style="background:none; border:none; color:grey; width:100%; margin-top:5px; cursor:pointer;">Cerrar</button> 
+</div> 
 </body>
 </html>
